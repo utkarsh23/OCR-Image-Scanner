@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OCR Image Scanner</title>
+
+	<!--CSS files-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+
+	<!--Javascript files-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+<body>
+	<h1 class="heading center">OCR Image Scanner</h1>
+	<form class="center" id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" style="color: white;"><br/><br/>
+		<input type="submit" name="send" value="upload" class="waves-effect waves-light btn">
+	</form>
+</body>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+
+	body {
+		width: 100%;
+		background-color: #232741;
+	}
+
+	.heading {
+		font-family: 'Baloo Bhaijaan', cursive;
+		color: white;
+	}
+
+	.btn {
+		background-color: white;
+		color: #232741;
+	}
+</style>
+</html>
