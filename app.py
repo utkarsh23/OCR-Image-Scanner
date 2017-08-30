@@ -5,7 +5,7 @@ except ImportError:
 import pytesseract
 import os
 from flask import Flask, render_template, request
-from imp import image_processing
+from image_processing_cv2 import image_processing
 
 app = Flask(__name__)
 
@@ -18,23 +18,23 @@ def index():
 @app.route("/upload", methods=["POST"])
 def upload():
 	target = os.path.join(APP_ROOT, 'static/')
-	print(target)
 
 	if not os.path.isdir(target):
 		os.mkdir(target)
 
-	for file in request.files.getlist("file"):
-		print(file)
-		filename = file.filename
-		destination = "".join([target, filename])
-		print(destination)
-		file.save(destination)
-		imagepath = "./static/" + filename
-		image_processing(imagepath)
+	file = request.files.getlist("file")[0]
+	filename = file.filename
+	destination = "".join([target, filename])
+	file.save(destination)
 
-	text = pytesseract.image_to_string(Image.open(imagepath))
+	imagepath = "./static/" + filename
+	save_to_file = filename.split(".")
+	save_to_file = "./static/" + save_to_file[0] + "_optimized." + save_to_file[1]
+	image_processing(imagepath, save_to_file)
 
-	return render_template("complete.html", display=text, image=imagepath)
+	text = pytesseract.image_to_string(Image.open(save_to_file))
+
+	return render_template("complete.html", image_unprocessed=imagepath, image_processed=save_to_file, display=text)
 
 if __name__ == "__main__":
 	app.run(debug=True)
