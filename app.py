@@ -1,10 +1,11 @@
 try:
-    import Image
+	import Image
 except ImportError:
-    from PIL import Image
+	from PIL import Image
 import pytesseract
 import os
 from flask import Flask, render_template, request
+from imp import image_processing
 
 app = Flask(__name__)
 
@@ -28,9 +29,10 @@ def upload():
 		destination = "".join([target, filename])
 		print(destination)
 		file.save(destination)
+		imagepath = "./static/" + filename
+		image_processing(imagepath)
 
-	text = pytesseract.image_to_string(Image.open(destination))
-	imagepath = "./static/" + filename
+	text = pytesseract.image_to_string(Image.open(imagepath))
 
 	return render_template("complete.html", display=text, image=imagepath)
 
