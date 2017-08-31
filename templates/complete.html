@@ -6,6 +6,7 @@
 	<!--CSS files-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/complete.css') }}">
 
 	<!--Javascript files-->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -25,57 +26,4 @@
 		<div class="image-text-cover"><div class="image-text">{{ display }}</div></div>
 	</div>
 </body>
-<style type="text/css">
-	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
-
-	body {
-		width: 100%;
-		background-color: #232741;
-	}
-
-	img {
-		max-height: 390px;
-		max-width: 90%;
-	}
-
-	h2 {
-		margin-bottom: 0;
-	}
-
-	h3 {
-		margin: 0;
-		margin-bottom: 5px;
-	}
-
-	.btn-floating {
-		float: left;
-	}
-
-	.btn {
-		background-color: white;
-		color: #232741;
-	}
-
-	.heading {
-		font-family: 'Baloo Bhaijaan', cursive;
-		color: white;
-	}
-
-	.image-text {
-		height: 300px;
-		overflow-y: auto;
-		background-color: white;
-		padding: 5px;
-		font-size: 1.5rem;
-		border-radius: 13px;
-		text-align: left;
-	}
-
-	.image-text-cover {
-		border-radius: 15px;
-		border: 3px solid #666;
-		padding: 5px;
-		background-color: white;
-	}
-</style>
 </html>

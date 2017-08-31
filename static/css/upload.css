@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+
+body {
+	width: 100%;
+	background-color: #232741;
+}
+
+.heading {
+	font-family: 'Baloo Bhaijaan', cursive;
+	color: white;
+}
+
+.btn {
+	background-color: white;
+	color: #232741;
+}

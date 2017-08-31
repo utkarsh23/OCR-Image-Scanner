@@ -17,7 +17,7 @@ def index():
 
 @app.route("/upload", methods=["POST"])
 def upload():
-	target = os.path.join(APP_ROOT, 'static/')
+	target = os.path.join(APP_ROOT, 'static/images/')
 
 	if not os.path.isdir(target):
 		os.mkdir(target)
@@ -27,9 +27,9 @@ def upload():
 	destination = "".join([target, filename])
 	file.save(destination)
 
-	imagepath = "./static/" + filename
+	imagepath = "./static/images/" + filename
 	save_to_file = filename.split(".")
-	save_to_file = "./static/" + save_to_file[0] + "_optimized." + save_to_file[1]
+	save_to_file = "./static/images/" + save_to_file[0] + "_optimized." + save_to_file[1]
 	image_processing(imagepath, save_to_file)
 
 	text = pytesseract.image_to_string(Image.open(save_to_file))
