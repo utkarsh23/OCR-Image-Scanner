@@ -2,6 +2,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is an OCR image scanner built as a Flask web app using OpenCV for image processing and tesseract for image recognition. It allows the user to upload an image, which is first processed so that text in the image is easier to recognize and differentiate from its background. This processed image is then passed onto tesseract which performs image recognition and outputs the text in this image.
+
+A demo of the working app can be viewed [here](https://vimeo.com/232011283).
 ## Features
 Image processing ensures that the text in that image is readable. It does so by first converting the image to grayscale and thresholding the image. An additional feature that the image processing script performs is deskewing text in this image so that tesseract's image recognition works efficiently.
 ## Limitations
